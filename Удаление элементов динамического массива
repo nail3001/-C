@@ -1,0 +1,28 @@
+int main()
+{
+	setlocale(LC_ALL, "rus"); 
+	int i, n, sum=0, j=0; 
+	printf("Введите количество элементов массива: "); 
+	scanf_s("%d", &n);
+	int* s = (int*)malloc(n * sizeof(int)); 
+	printf("Введите массив: ");
+	for (i = 0; i < n; i++) 
+	{
+		scanf_s("%d", &s[i]);
+		sum += s[i];
+	}
+	for (i = 0; i < n; i++)
+	{
+		if (s[i]%2!=sum%2)
+		{
+			s[j++] = s[i];
+		}
+	}
+	realloc(s, j);
+	printf("Новый массив: ");
+	for (i = 0; i < j; i++)
+	{
+		printf("%d ", s[i]);
+	}
+	return 0;
+}
